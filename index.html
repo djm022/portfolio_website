@@ -1,50 +1,361 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>darrylmost.com // Under Construction</title>
+  <title>Darryl Most // Software Engineer</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    @keyframes pulse-glow {
-      0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.6)); }
-      50% { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.2)); }
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cyber: {
+              bg: '#050811',
+              card: '#0a0f1d',
+              border: '#1e293b',
+              cyan: '#06b6d4',
+              pink: '#ec4899',
+              purple: '#a855f7',
+              muted: '#94a3b8'
+            }
+          },
+          fontFamily: {
+            mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'monospace'],
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif']
+          }
+        }
+      }
     }
-    .neon-pulse { animation: pulse-glow 3s infinite ease-in-out; }
+  </script>
+  <style>
+    /* Subtle background grid */
+    .bg-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(6, 182, 212, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(6, 182, 212, 0.04) 1px, transparent 1px);
+    }
+    .neon-cyan-glow {
+      box-shadow: 0 0 20px -5px rgba(6, 182, 212, 0.3);
+    }
+    .neon-text-glow {
+      text-shadow: 0 0 10px rgba(6, 182, 212, 0.5);
+    }
+    .hover-cyber-card {
+        transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .hover-cyber-card:hover {
+        transform: translateY(-2px);
+        border-color: rgba(6, 182, 212, 0.5);
+        box-shadow: 0 0 25px -5px rgba(6, 182, 212, 0.2);
+    }
   </style>
 </head>
-<body class="bg-[#030712] text-slate-100 min-h-screen flex items-center justify-center p-6 font-mono selection:bg-cyan-500 selection:text-black">
-  <div class="relative max-w-xl w-full border border-cyan-500/30 bg-slate-950/80 p-8 rounded-lg shadow-2xl shadow-cyan-950/50 backdrop-blur-md">
-    <div class="absolute -top-3 left-6 px-2 bg-[#030712] border border-cyan-500/50 text-cyan-400 text-xs font-bold tracking-widest uppercase">
-      SYS_STATUS // INIT
-    </div>
-    
-    <div class="space-y-6 text-center">
-      <div class="inline-block border border-cyan-500/40 p-3 rounded-full bg-cyan-950/20 neon-pulse">
-        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-        </svg>
-      </div>
+<body class="bg-cyber-bg bg-grid text-slate-300 font-sans selection:bg-cyan-500 selection:text-black antialiased min-h-screen">
 
-      <div>
-        <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
-          darrylmost<span class="text-cyan-400">.com</span>
-        </h1>
-        <p class="mt-2 text-sm text-cyan-500/80 uppercase tracking-widest">
-          Portfolio & Systems Architecture
-        </p>
-      </div>
+  <div class="max-w-7xl mx-auto px-6 py-12 lg:py-24">
+    <div class="lg:flex lg:justify-between lg:gap-16">
+      
+      <!-- ================= LEFT FIXED / STICKY SIDEBAR ================= -->
+      <header class="lg:sticky lg:top-24 lg:flex lg:max-h-[calc(100vh-12rem)] lg:w-5/12 lg:flex-col lg:justify-between">
+        <div>
+          <!-- Status Tag -->
+          <div class="inline-flex items-center gap-2 px-2.5 py-1 rounded border border-cyan-500/30 bg-cyan-950/20 text-cyan-400 text-xs font-mono mb-6">
+            <span class="relative flex h-2 w-2">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+            </span>
+            SYSTEM_ONLINE // V2.6
+          </div>
 
-      <div class="p-4 rounded bg-slate-900/90 border border-slate-800 text-left text-xs space-y-1 text-slate-400 font-mono">
-        <p><span class="text-emerald-400">&gt;</span> CONTAINER_STATUS: <span class="text-slate-200">ONLINE</span></p>
-        <p><span class="text-emerald-400">&gt;</span> ROUTING: <span class="text-slate-200">NAMECHEAP -> RENDER</span></p>
-        <p><span class="text-cyan-400">&gt;</span> PIPELINE: <span class="text-cyan-300">ACTIVE BUILD IN PROGRESS...</span></p>
-      </div>
+          <!-- Main Identity -->
+          <h1 class="text-4xl sm:text-5xl font-black tracking-tight text-white font-mono">
+            Darryl <span class="text-cyan-400 neon-text-glow">Most</span>
+          </h1>
+          <h2 class="mt-3 text-lg font-medium text-purple-400 font-mono tracking-wide uppercase">
+            Software Engineer
+          </h2>
+          <p class="mt-4 max-w-sm text-sm leading-relaxed text-slate-400">
+            Specializing in high-performance web applications, distributed backend services, and scalable data-intensive systems.
+          </p>
 
-      <p class="text-xs text-slate-500">
-        Deployment pipeline verified. Returning shortly.
-      </p>
+          <!-- Navigation Links (Scroll-Spy) -->
+          <nav class="hidden lg:block mt-12 font-mono text-xs tracking-widest uppercase">
+            <ul class="space-y-4">
+              <li>
+                <a href="#about" class="nav-link group flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors" data-section="about">
+                  <span class="nav-indicator h-px w-6 bg-slate-600 group-hover:w-12 group-hover:bg-cyan-400 transition-all"></span>
+                  <span class="text-cyan-500/80">01 //</span> ABOUT
+                </a>
+              </li>
+              <li>
+                <a href="#experience" class="nav-link group flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors" data-section="experience">
+                  <span class="nav-indicator h-px w-6 bg-slate-600 group-hover:w-12 group-hover:bg-cyan-400 transition-all"></span>
+                  <span class="text-cyan-500/80">02 //</span> EXPERIENCE
+                </a>
+              </li>
+              <li>
+                <a href="#projects" class="nav-link group flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors" data-section="projects">
+                  <span class="nav-indicator h-px w-6 bg-slate-600 group-hover:w-12 group-hover:bg-cyan-400 transition-all"></span>
+                  <span class="text-cyan-500/80">03 //</span> PROJECTS
+                </a>
+              </li>
+              <li>
+                <a href="#skills" class="nav-link group flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors" data-section="skills">
+                  <span class="nav-indicator h-px w-6 bg-slate-600 group-hover:w-12 group-hover:bg-cyan-400 transition-all"></span>
+                  <span class="text-cyan-500/80">04 //</span> SKILLS
+                </a>
+              </li>
+              <li>
+                <a href="#contact" class="nav-link group flex items-center gap-3 text-slate-400 hover:text-cyan-400 transition-colors" data-section="contact">
+                  <span class="nav-indicator h-px w-6 bg-slate-600 group-hover:w-12 group-hover:bg-cyan-400 transition-all"></span>
+                  <span class="text-cyan-500/80">05 //</span> CONTACT
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Sidebar Action Dock -->
+        <div class="mt-8 lg:mt-0 flex flex-col gap-6">
+          <div class="flex items-center gap-4">
+            <a href="https://github.com/djm022" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+            </a>
+            <a href="https://www.linkedin.com/in/darryl-most-899462382/" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-cyan-400 transition-colors">
+              <svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+            </a>
+            <a href="/resume.pdf" 
+                download="Darryl_Most_Resume.pdf"
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-4 py-2 rounded border border-purple-500/40 bg-purple-950/20 text-purple-300 text-xs font-mono font-semibold hover:bg-purple-500/20 hover:border-purple-400 hover:text-purple-200 transition-all group"
+                title="Download Resume PDF">
+                <svg class="w-3.5 h-3.5 text-purple-400 group-hover:translate-y-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                <span>RESUME_PDF</span>
+                <span class="text-xs text-purple-400/70">&darr;</span>
+            </a>
+          </div>
+          <div>
+            <button 
+                onclick="navigator.clipboard.writeText('owner@darrylmost.com'); const el = this.querySelector('.copy-status'); el.textContent='COPIED!'; setTimeout(() => el.textContent='📋', 2000);" 
+                class="inline-flex items-center gap-2 px-4 py-2 rounded border border-cyan-500/50 bg-cyan-950/30 text-cyan-300 text-xs font-mono font-semibold hover:bg-cyan-500 hover:text-black transition-all group"
+                title="Copy email to clipboard">
+                <span>owner@darrylmost.com</span>
+                <span class="copy-status text-sm">📋</span>
+            </button>
+        </div>
+      </div>
+      </header>
+
+      <!-- ================= RIGHT SCROLLABLE CONTENT ================= -->
+      <main class="lg:w-7/12 mt-16 lg:mt-0 space-y-24">
+        
+        <!-- SECTION 01: ABOUT -->
+        <section id="about" class="scroll-mt-24 space-y-6">
+          <div class="lg:hidden text-cyan-400 font-mono text-xs tracking-widest uppercase mb-2">
+            01 // ABOUT
+          </div>
+          <p class="text-slate-300 leading-relaxed text-base">
+            I am a Software Engineer focused on constructing resilient web applications, data indexing tools, and scalable cloud architectures. My work emphasizes low-latency response times, robust database modeling, and dependable automation pipelines.
+          </p>
+          <p class="text-slate-400 leading-relaxed text-sm">
+            Whether architecting full-stack systems with modern frameworks or managing production deployments with Docker and cloud hosting platforms, I prioritize maintainable patterns and high-throughput reliability.
+          </p>
+        </section>
+
+        <!-- SECTION 02: EXPERIENCE -->
+        <section id="experience" class="scroll-mt-24 space-y-8">
+          <div class="lg:hidden text-cyan-400 font-mono text-xs tracking-widest uppercase mb-2">
+            02 // EXPERIENCE
+          </div>
+
+          <div class="space-y-8">
+            <!-- Experience Item -->
+            <div class="p-6 rounded-lg border border-slate-800 bg-cyber-card/80 hover:border-cyan-500/40 transition-all group">
+              <div class="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 mb-2">
+                <h3 class="text-white font-bold font-mono text-base group-hover:text-cyan-400 transition-colors">
+                  Software Engineer
+                </h3>
+                <span class="text-xs font-mono text-slate-500">2023 &mdash; Present</span>
+              </div>
+              <div class="text-xs font-mono text-purple-400 mb-4">Enterprise Applications & Infrastructure</div>
+              <ul class="text-sm text-slate-400 space-y-2 list-disc list-inside leading-relaxed">
+                <li>Designed and optimized high-throughput REST APIs and microservice endpoints.</li>
+                <li>Streamlined CI/CD automation pipelines, reducing container build and release overhead.</li>
+                <li>Refactored critical database queries and caching layers to minimize endpoint latency.</li>
+              </ul>
+              <div class="mt-4 flex flex-wrap gap-2 pt-2">
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700/60 text-cyan-300 text-[11px] font-mono">TypeScript</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700/60 text-cyan-300 text-[11px] font-mono">Node.js</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700/60 text-cyan-300 text-[11px] font-mono">PostgreSQL</span>
+                <span class="px-2 py-0.5 rounded bg-slate-900 border border-slate-700/60 text-cyan-300 text-[11px] font-mono">Docker</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 03: FEATURED PROJECTS -->
+        <section id="projects" class="scroll-mt-24 space-y-8">
+          <div class="lg:hidden text-cyan-400 font-mono text-xs tracking-widest uppercase mb-2">
+            03 // PROJECTS
+          </div>
+
+          <!-- Spotlight Card: tcg-deals.io -->
+          <div class="p-6 rounded-lg border border-cyan-500/40 bg-cyber-card neon-cyan-glow transition-all">
+            <div class="flex items-center justify-between gap-4 mb-2">
+              <span class="text-xs font-mono text-pink-400 uppercase tracking-widest">Flagship Application</span>
+              <a href="https://tcg-deals.io" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1 text-xs font-mono text-cyan-400 hover:underline">
+                <span>tcg-deals.io</span>
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              </a>
+            </div>
+
+            <h3 class="text-xl font-bold font-mono text-white mb-2">
+              TCG Deals Real-Time Market Platform
+            </h3>
+
+            <p class="text-sm text-slate-300 leading-relaxed mb-4">
+              A comprehensive marketplace aggregator and deal-tracking engine built to monitor, index, and surface real-time pricing anomalies across trading card markets. Hosted with custom apex DNS routing and automated TLS on Render.
+            </p>
+
+            <ul class="text-xs text-slate-400 space-y-1.5 list-disc list-inside font-mono mb-5">
+              <li>High-frequency ingestion pipelines tracking marketplace price deviations.</li>
+              <li>Optimized caching layer for sub-100ms pricing feed updates.</li>
+              <li>Production deployment pipeline powered by automated container builds.</li>
+            </ul>
+
+            <div class="flex flex-wrap gap-2 pt-2 border-t border-slate-800">
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">TypeScript</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">Vue / Nuxt</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">PostgreSQL</span>
+              <span class="px-2 py-0.5 rounded bg-slate-900 border border-cyan-500/30 text-cyan-300 text-[11px] font-mono">Render</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 04: SKILLS MATRIX -->
+        <section id="skills" class="scroll-mt-24 space-y-6">
+          <div class="lg:hidden text-cyan-400 font-mono text-xs tracking-widest uppercase mb-2">
+            04 // SKILLS
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <!-- Category -->
+            <div class="p-4 rounded border border-slate-800 bg-cyber-card/60">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-cyan-400 mb-3">Languages & Core</h4>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-300">
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">TypeScript</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">JavaScript</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Python</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">SQL</span>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="p-4 rounded border border-slate-800 bg-cyber-card/60">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-purple-400 mb-3">Frontend & Frameworks</h4>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-300">
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Vue.js</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Nuxt</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Tailwind CSS</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">HTML5 / CSS3</span>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="p-4 rounded border border-slate-800 bg-cyber-card/60">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-pink-400 mb-3">Backend & Storage</h4>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-300">
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Node.js</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">RESTful APIs</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">PostgreSQL</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Redis</span>
+              </div>
+            </div>
+
+            <!-- Category -->
+            <div class="p-4 rounded border border-slate-800 bg-cyber-card/60">
+              <h4 class="text-xs font-mono uppercase tracking-wider text-emerald-400 mb-3">DevOps & Cloud</h4>
+              <div class="flex flex-wrap gap-1.5 font-mono text-xs text-slate-300">
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Docker</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Render</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Git / GitHub CI</span>
+                <span class="px-2 py-1 bg-slate-900 rounded border border-slate-800">Linux / Nginx</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- SECTION 05: CONTACT -->
+        <section id="contact" class="scroll-mt-24 space-y-6 pt-6">
+          <div class="lg:hidden text-cyan-400 font-mono text-xs tracking-widest uppercase mb-2">
+            05 // CONTACT
+          </div>
+
+          <div class="p-8 rounded-lg border border-cyan-500/30 bg-cyber-card/90 text-center space-y-4">
+            <h3 class="text-2xl font-bold font-mono text-white">
+              Initialize Connection
+            </h3>
+            <p class="text-sm text-slate-400 max-w-md mx-auto">
+              Open to conversations regarding full-stack engineering roles, distributed systems architecture, and consulting projects.
+            </p>
+            <div class="pt-2">
+              <a href="mailto:owner@darrylmost.com" class="inline-flex items-center gap-2 px-6 py-3 rounded border border-cyan-400 bg-cyan-500/10 text-cyan-300 font-mono text-sm font-semibold hover:bg-cyan-400 hover:text-black transition-all">
+                <span>Contact Via Email</span>
+                <span>&rarr;</span>
+              </a>
+            </div>
+          </div>
+
+          <footer class="pt-12 text-center text-xs font-mono text-slate-600">
+            <p>darrylmost.com &bull; Deployed via Render &bull; Handcrafted Architecture</p>
+          </footer>
+        </section>
+
+      </main>
     </div>
   </div>
+
+  <!-- Scroll Spy Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const sections = document.querySelectorAll('section');
+      const navLinks = document.querySelectorAll('.nav-link');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const currentId = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const indicator = link.querySelector('.nav-indicator');
+              if (link.getAttribute('data-section') === currentId) {
+                link.classList.remove('text-slate-400');
+                link.classList.add('text-cyan-400');
+                if (indicator) {
+                  indicator.classList.remove('w-6', 'bg-slate-600');
+                  indicator.classList.add('w-12', 'bg-cyan-400');
+                }
+              } else {
+                link.classList.remove('text-cyan-400');
+                link.classList.add('text-slate-400');
+                if (indicator) {
+                  indicator.classList.remove('w-12', 'bg-cyan-400');
+                  indicator.classList.add('w-6', 'bg-slate-600');
+                }
+              }
+            });
+          }
+        });
+      }, {
+        rootMargin: '-20% 0px -65% 0px'
+      });
+
+      sections.forEach(section => observer.observe(section));
+    });
+  </script>
 </body>
 </html>
