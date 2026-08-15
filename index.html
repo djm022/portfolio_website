@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>darrylmost.com // Under Construction</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @keyframes pulse-glow {
+      0%, 100% { opacity: 1; filter: drop-shadow(0 0 15px rgba(6, 182, 212, 0.6)); }
+      50% { opacity: 0.7; filter: drop-shadow(0 0 5px rgba(6, 182, 212, 0.2)); }
+    }
+    .neon-pulse { animation: pulse-glow 3s infinite ease-in-out; }
+  </style>
+</head>
+<body class="bg-[#030712] text-slate-100 min-h-screen flex items-center justify-center p-6 font-mono selection:bg-cyan-500 selection:text-black">
+  <div class="relative max-w-xl w-full border border-cyan-500/30 bg-slate-950/80 p-8 rounded-lg shadow-2xl shadow-cyan-950/50 backdrop-blur-md">
+    <div class="absolute -top-3 left-6 px-2 bg-[#030712] border border-cyan-500/50 text-cyan-400 text-xs font-bold tracking-widest uppercase">
+      SYS_STATUS // INIT
+    </div>
+    
+    <div class="space-y-6 text-center">
+      <div class="inline-block border border-cyan-500/40 p-3 rounded-full bg-cyan-950/20 neon-pulse">
+        <svg class="w-8 h-8 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+        </svg>
+      </div>
+
+      <div>
+        <h1 class="text-3xl font-black tracking-tight text-white sm:text-4xl">
+          darrylmost<span class="text-cyan-400">.com</span>
+        </h1>
+        <p class="mt-2 text-sm text-cyan-500/80 uppercase tracking-widest">
+          Portfolio & Systems Architecture
+        </p>
+      </div>
+
+      <div class="p-4 rounded bg-slate-900/90 border border-slate-800 text-left text-xs space-y-1 text-slate-400 font-mono">
+        <p><span class="text-emerald-400">&gt;</span> CONTAINER_STATUS: <span class="text-slate-200">ONLINE</span></p>
+        <p><span class="text-emerald-400">&gt;</span> ROUTING: <span class="text-slate-200">NAMECHEAP -> RENDER</span></p>
+        <p><span class="text-cyan-400">&gt;</span> PIPELINE: <span class="text-cyan-300">ACTIVE BUILD IN PROGRESS...</span></p>
+      </div>
+
+      <p class="text-xs text-slate-500">
+        Deployment pipeline verified. Returning shortly.
+      </p>
+    </div>
+  </div>
+</body>
+</html>
